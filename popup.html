@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>GLM 抢购助手</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      padding: 16px;
+      width: 320px;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    h3 {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .row {
+      margin: 8px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .row span {
+      font-weight: 600;
+      color: #333;
+    }
+    #status {
+      color: #52c41a;
+    }
+    #status:contains('关闭') {
+      color: #ff4d4f;
+    }
+    button {
+      background: #1890ff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin-top: 8px;
+    }
+    button:hover {
+      background: #40a9ff;
+    }
+    button:disabled {
+      background: #d9d9d9;
+      cursor: not-allowed;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <h3>GLM Coding Pro 抢购助手</h3>
+  <div class="row">状态: <span id="status">加载中...</span></div>
+  <div class="row">目标套餐:</div>
+  <div class="row" id="packageRadio" style="display:flex;gap:12px;margin:8px 0;">
+    <label><input type="radio" name="pkg" value="lite"> Lite</label>
+    <label><input type="radio" name="pkg" value="pro" checked> Pro</label>
+    <label><input type="radio" name="pkg" value="max"> Max</label>
+  </div>
+  <div class="row">上次运行: <span id="lastStatus">无</span></div>
+  <div class="row">下次触发 (CST): <span id="nextTime">计算中...</span></div>
+  <div class="row">上次结果: <span id="lastResult">无</span></div>
+  <hr>
+  <div class="row">
+    <label><input type="checkbox" id="enabledBox"> 自动触发开启</label>
+  </div>
+  <button id="triggerBtn">立即触发测试</button>
+  <script src="popup.js"></script>
+</body>
+</html>
